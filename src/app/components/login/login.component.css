@@ -1,0 +1,179 @@
+/* Variables de color corporativo */
+:root {
+  --primary-blue: #1E1B4B;
+  --primary-orange: #FF5722;
+  --white: #ffffff;
+  --error-red: #dc3545;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-image: url('../../../assets/CLJ.jpeg');
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(30, 27, 75, 0.7); /* Color azul con opacidad */
+  z-index: 1;
+}
+
+.login-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+.login-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.header-logo{
+  display: block;
+  background-color: #f0f0f0;
+  padding: 0;
+  text-align: center;
+  background-image: url("../../../assets/radec-logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 110px;
+  cursor: pointer;
+}
+
+.login-header h2 {
+  color: #1E1B4B;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.login-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.login-form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #1E1B4B;
+  font-weight: 500;
+}
+
+.login-form .form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #1E1B4B;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-form .form-group input:focus {
+  outline: none;
+  border-color: #FF5722;
+  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+}
+
+
+.login-form .form-group input.error {
+  border-color: #dc3545;
+}
+
+.login-form .form-group input::placeholder {
+  color: #999;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #FF5722;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #e64a19; /* Versión más oscura del naranja primario */
+}
+
+.login-form button:disabled {
+  background-color: #ffab91; /* Versión más clara del naranja primario */
+  cursor: not-allowed;
+}
+
+.error-message {
+  display: block;
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.forgot-password a {
+  color: #FF5722;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: #e64a19; /* Versión más oscura del naranja primario */
+  text-decoration: underline;
+}
+
+.modal-title{
+  color: white;
+}
+
+.modal-header{
+  justify-content: center;
+}
+
+.modal-content .modal-header,
+.modal-content .modal-footer {
+  /* background: radial-gradient(circle, #0a0a4a 1%, #343578); */
+  background: radial-gradient(circle, #ffa270 1%, #ff6f37);
+}
+
+
+
+.modal-body input:focus {
+  outline: none;
+  border-color: #FF5722;
+  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+}
+
+.modal-btn{
+  border: none;
+  color: white;
+}

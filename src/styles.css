@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/* .background{
+  background: rgb(167,166,255);
+  background: linear-gradient(0deg, rgba(167,166,255,1) 50%, rgba(205,206,255,1) 100%);
+}
+ */
+ * {
+  box-sizing: border-box; /* Incluye el padding y los bordes en el cálculo del ancho total */
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,12 @@
+<div class="app-list">
+  <div class="card-container">
+    <div class="card" *ngFor="let app of filteredAppList">
+      <img [src]="app.imageUrl" alt="{{ app.name }}" class="app-image">
+      <div class="card-content">
+        <h3>{{ app.name }}</h3>
+        <p>{{ app.description }}</p>
+        <a [href]="app.url" target="_blank" class="btn">Abrir App</a>
+      </div>
+    </div>
+  </div>
+</div>

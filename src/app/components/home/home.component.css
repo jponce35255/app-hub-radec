@@ -1,0 +1,266 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.header {
+  display: block;
+  background-color: #f0f0f0;
+  padding: 0;
+  text-align: center;
+  background-image: url("../../../assets/radec-header.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 20vh; /* Altura dinámica según el viewport */
+  min-height: 171px; /* Altura mínima para pantallas pequeñas */
+  max-height: 300px; /* Limita la altura para pantallas grandes */
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  position: relative;
+  z-index: 10;
+  padding: 1rem;
+}
+
+/* Background */
+.dot-pattern {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at center, #FF6B00 4px, transparent 2px),
+    radial-gradient(circle at center, #FF6B00 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  opacity: 0.20;
+}
+/* Background END */
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(to right, #2A2A2A, #333333);
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+.nav-option{
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 1rem;
+  padding: 0;
+  color: #FF6B00;
+}
+
+.separator {
+  width: 2px;
+  height: 24px;
+  background-color: #FF6B00;
+  margin: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+}
+
+/* Navbar styles END*/
+
+
+.card {
+  background-color: white;
+  border: 1.5px solid #d8850a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* padding: 20px; */
+  /* padding-top: 0px; */
+  height: 200px;
+  margin: 5px auto;
+  width: 100%; /* Asegura que la card ocupe el mismo ancho */
+  max-width: 100%; /* Evita que el ancho exceda el 100% */
+  position: sticky; /* Hace que se quede fija */
+  top: 0; /* Se queda en el tope de la pantalla */
+  z-index: 999; /* Sobre otros elementos */
+  border-radius: 5px;
+}
+
+.nav-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+
+
+.icon{
+  font-size: 18px;
+}
+
+.animated-line {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.animated-line::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px; /* Altura de la línea */
+  background-color: white;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.animated-line:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+
+
+
+/* Estilos del Dropdown */
+.dd-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dd-container ul{
+  position: absolute;
+  overflow: hidden;
+}
+
+.nav-option:hover {
+  color: #ff8533;
+}
+
+.dd-icon {
+  transition: transform 0.3s ease;
+}
+
+.nav-option:hover .dd-icon {
+  transform: rotate(180deg);
+}
+
+.dd-menu{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #333333;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  list-style: none;
+  margin: 0 1rem;
+  font-size: 18px;
+}
+
+.dd-container:hover .dd-menu{
+ display: block;
+}
+
+.dd-menu li {
+  padding: 3px 10px;
+  margin: 5px 0;
+  color: white;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dd-menu li:hover {
+  background: #FF6B00;
+  color: white;
+}
+
+.dd-menu li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle, #0a0a4a 1%, #343578);
+  color: white;
+  padding: 0.4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  position: relative; /* Necesario para aplicar el z-index */
+  z-index: 10;
+}
+
+.footer-text{
+  font-size: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-text:hover {
+  cursor: pointer;
+  text-decoration:underline;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.3rem;
+  border: 1px solid #1E1B4B;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #FF5722;
+  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+}
+
+
+
