@@ -8,11 +8,11 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-brand">
-        <h1>Intranet Corporativa</h1>
+        <h1>Applicaciones Radec</h1>
         <div class="separator"></div>
 
          <!-- Filtro de búsqueda -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <input
         type="text"
         [(ngModel)]="searchText"
@@ -20,23 +20,23 @@
         placeholder="Buscar"
         class="search-input"
       >
-      </div>
+      </div> -->
 
-        <ul class="nav-list">
-          <li *ngFor="let option of navList">
+        <!-- <ul class="nav-list">
+          <li *ngFor="let option of navList"> -->
 
             <!-- Dropdown menu -->
-            <ng-container *ngIf="option.submenu; else singleOption">
+            <!-- <ng-container *ngIf="option.submenu; else singleOption">
              <div class="dd-container">
               <h2 class="nav-option animated-line">
                 {{option.name}}
                 <svg class="dd-icon" viewBox="0 0 24 24" width="24" height="24">
                   <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                 </svg>
-              </h2>
+              </h2> -->
 
               <!-- Submenu -->
-              <ul class="dd-menu">
+              <!-- <ul class="dd-menu">
                 <li *ngFor="let submenu of option.submenu">
                   <a class="dd-item" [href]="submenu.route">
                     <i *ngIf="submenu.icon">
@@ -47,17 +47,17 @@
                 </li>
               </ul>
              </div>
-            </ng-container>
+            </ng-container> -->
 
 
             <!-- Single option -->
-            <ng-template #singleOption>
+            <!-- <ng-template #singleOption>
               <h2 class="animated-line">
                 <a [href]="option.route" class="nav-option" style="text-decoration: none;">{{option.name}}</a>
               </h2>
             </ng-template>
           </li>
-        </ul>
+        </ul> -->
 
       </div>
     </div>

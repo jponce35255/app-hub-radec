@@ -9,18 +9,25 @@ export class TokenService {
 
   isTokenExpired(): boolean {
     const token = this.authService.getToken();
-    if (!token) {
+    const expiresIn = localStorage.getItem('expires_in');  // Tiempo de expiración en segundos
+
+    if (!token || !expiresIn) {
       return true;
     }
 
-    const decodedToken = this.decodeToken(token);
-    const expirationDate = new Date(decodedToken.exp * 1000); // Convertir de segundos a milisegundos
-    return expirationDate < new Date();
+    const expirationDate = this.getExpirationDate(Number(expiresIn));
+
+    return expirationDate < new Date();  // Compara si la fecha de expiración ya pasó
   }
 
-  decodeToken(token: string): any {
-    const payload = token.split('.')[1];
-    const decoded = atob(payload);  // Decodificar la parte del payload
-    return JSON.parse(decoded);
+  private getExpirationDate(expiresIn: number): Date {
+    const issuedAt = localStorage.getItem('auth_issue_date');
+    if (!issuedAt) {
+      return new Date();
+    }
+
+    const issuedDate = new Date(issuedAt);
+    const expirationDate = new Date(issuedDate.getTime() + expiresIn * 1000);  // Expiración en milisegundos
+    return expirationDate;
   }
 }

@@ -15,8 +15,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = this.authService.getToken();
+    const expiresIn = localStorage.getItem('expires_in');
 
-    if (token && !this.tokenService.isTokenExpired()) {
+    // Verificar si hay token y si no ha expirado
+    if (token && expiresIn && !this.tokenService.isTokenExpired()) {
       const cloned = req.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,
@@ -24,6 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
       });
       return next.handle(cloned);
     } else {
+      // Si el token ha expirado o no existe, hacer logout y redirigir al login
       this.authService.logout();
       this.router.navigate(['/login']);
       return next.handle(req);

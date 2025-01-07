@@ -131,7 +131,8 @@
   display: block;
   color: #dc3545;
   font-size: 0.875rem;
-  margin-top: 0.25rem;
+  margin: 1rem 0;
+  background-color: #fee6e5;
 }
 
 .forgot-password {
