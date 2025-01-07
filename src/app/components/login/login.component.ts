@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../core/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { AuthService } from '../../core/services/auth.service';
     ReactiveFormsModule,
     CommonModule,
     MatButtonModule,
+    HttpClientModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    // private authService: AuthService
   ) {
     // Inicialización del formulario
     this.loginForm = this.formBuilder.group({
@@ -50,7 +52,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         this.messageError = "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.";
         return;
       }
-      this.onLogin();
+      // this.onLogin();
       //this.router.navigateByUrl('/', { replaceUrl: true }); //Redirigir y reemplazar el historial
       // TODO: Agregar un toast notification tras inicio de sesion exitoso
       // TODO: Redireccionar al home tras loguearse
@@ -62,20 +64,20 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.showPassword = !this.showPassword;
   }
 
-  onLogin(): void {
-    let {username, password} = this.loginForm.value;
+  // onLogin(): void {
+  //   let {username, password} = this.loginForm.value;
 
-    this.authService.login(username, password).subscribe(
-      (response) => {
-        const token = response.token; // Suponiendo que la API devuelve un token en la respuesta
-        this.authService.setToken(token);
-        this.router.navigate(['/']);  // Redirige a un área protegida
-        console.log(response);
-      },
-      (error) => {
-        this.messageError = 'Credenciales incorrectas.';
-        console.log(error);
-      }
-    );
-  }
+  //   this.authService.login(username, password).subscribe(
+  //     (response) => {
+  //       const token = response.token; // Suponiendo que la API devuelve un token en la respuesta
+  //       this.authService.setToken(token);
+  //       this.router.navigate(['/']);  // Redirige a un área protegida
+  //       console.log(response);
+  //     },
+  //     (error) => {
+  //       this.messageError = 'Credenciales incorrectas.';
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 }
