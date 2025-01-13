@@ -4,9 +4,45 @@
   background: linear-gradient(0deg, rgba(167,166,255,1) 50%, rgba(205,206,255,1) 100%);
 }
  */
+ @import 'ngx-toastr/toastr';
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
  * {
   box-sizing: border-box; /* Incluye el padding y los bordes en el cálculo del ancho total */
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn-t1{
+  display: inline;
+  background-color: #3957d7;
+  color: white;
+  height: 2.5rem;
+  font-weight: bold;
+  border-radius: 1.5rem;
+  padding: 0 1rem;
+  margin: 0rem 0.3rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-t1:hover {
+  opacity: 0.9;
+}
+
+.bg-success{
+  background-color: #00b800;
+}
+
+.bg-warn{
+  background-color: #FF5722;
+}
+
+.bg-white{
+  background-color: white;
+  color: #3957d7;
+  border: 1px solid #3957d7;
+}

@@ -1,69 +1,57 @@
 <div class="login-container">
-  <div class="login-card">
-    <div class="login-header">
-      <a href="https://www.radec.com.mx/" class="header-logo"></a>
+  <!--* Loading spinner -->
+  <app-spinner [isLoading]="isLoading"></app-spinner>
+
+  <!--* Formulario a la izquierda -->
+  <div class="form-container">
+    <div class="logo-container">
+      <img src="/assets/radec-logo-removebg.png" alt="Logo Radec" class="logo">
     </div>
-    <span class="error-message" *ngIf="messageError">{{ messageError }}</span>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <!--? Usuario -->
-      <div class="form-group">
-        <!-- <label for="email">Usuario</label> -->
-        <input
-          type="text"
-          id="usuario"
-          formControlName="usuario"
-          placeholder="Usuario"
-          [class.error]="loginForm.get('usuario')?.invalid && loginForm.get('usuario')?.touched"
-        >
-      </div>
+      <app-input-t1
+        [label]="'Usuario'"
+        [placeholder]="''"
+        [type]="'text'"
+        formControlName="user"
+      >
+      </app-input-t1>
 
       <!--? Contraseña -->
-      <div class="form-group">
-        <!-- <label for="password">Contraseña</label> -->
-        <input
-          type="password"
-          id="password"
-          formControlName="password"
-          placeholder="Contraseña"
-          [class.error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
-        >
-        <span class="error-message" *ngIf="passwordError">{{ passwordError }}</span>
+      <app-input-t1
+        [label]="'Contraseña'"
+        [placeholder]="''"
+        [type]="'password'"
+        formControlName="password"
+      >
+      </app-input-t1>
+
+      <div class="forgot-password-container">
+        <a class="forgot-password" (click)="updateValue('RECOVER')">¿Olvidaste tu contraseña?</a>
       </div>
 
-      <button type="submit" [disabled]="loginForm.invalid">
-        Iniciar Sesión
-      </button>
-
-      <div class="forgot-password">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPass">¿Olvidaste tu contraseña?</a>
+      <div class="button-container">
+        <app-button-t1 [text]="'Ingresar'" [type]="'submit'" [disabled]="loginForm.invalid"></app-button-t1>
       </div>
+
     </form>
 
-  </div>
-</div>
-
-
-<!-- Modal - Recuperar contraseña -->
-<div class="modal fade" id="forgotPass" tabindex="-1" aria-labelledby="forgotPassLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-       <!-- Contenedor para el fondo con patrón -->
-       <div class="dot-pattern"></div>
-
-      <div class="modal-header">
-        <h5 class="modal-title" id="forgotPassLabel">Recuperar Contraseña</h5>
-      </div>
-      <div class="modal-body">
-        <p class="lead text-center mb-4">Te enviaremos tu contraseña a tu correo electrónico.</p>
-        <div class="mb-3">
-          <input type="email" class="form-control form-control" id="email" placeholder="nombre_apellido@radec.com.mx" required>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger modal-btn" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-outline-success modal-btn">Enviar Correo</button>
-      </div>
+    <div class="decorative-line">
+      <hr>
     </div>
+
+    <div class="change-password-container">
+      <a class="change-password" (click)="updateValue('CHANGE')">Cambiar contraseña</a>
+    </div>
+  </div>
+
+  <!-- Imagen a la derecha -->
+  <div class="image-container">
+
+      <!--? Cards -->
+      <app-forgot-password [forgotPassword]="forgotPassword" (closeCard)="forgotPassword = $event;"></app-forgot-password>
+      <app-change-password [changePassword]="changePassword" (closeCard)="changePassword = $event;"></app-change-password>
   </div>
 </div>
 

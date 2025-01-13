@@ -1,4 +1,4 @@
-.container {
+.background-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -25,7 +25,8 @@
   flex: 1;
   position: relative;
   z-index: 10;
-  padding: 1rem;
+  padding: 1rem 1.2rem;
+  margin-top: 60px;
 }
 
 /* Background */
@@ -43,21 +44,25 @@
 
 /* Navbar styles */
 .navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   background: linear-gradient(to right, #2A2A2A, #333333);
   color: white;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 98%;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
 
 .navbar-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  text-align: left;
+  justify-content: space-between;
 }
 
 .navbar-brand {
@@ -67,6 +72,7 @@
   margin: 0;
   padding: 0;
   text-align: left;
+  width: 100%;
 }
 
 h1 {
@@ -76,14 +82,6 @@ h1 {
   color: white;
 }
 
-.nav-option{
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin: 0 1rem;
-  padding: 0;
-  color: #FF6B00;
-}
-
 .separator {
   width: 2px;
   height: 24px;
@@ -91,50 +89,6 @@ h1 {
   margin: 0 1rem;
 }
 
-@media (max-width: 768px) {
-  .navbar-brand {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-}
-
-/* Navbar styles END*/
-
-
-.card {
-  background-color: white;
-  border: 1.5px solid #d8850a;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* padding: 20px; */
-  /* padding-top: 0px; */
-  height: 200px;
-  margin: 5px auto;
-  width: 100%; /* Asegura que la card ocupe el mismo ancho */
-  max-width: 100%; /* Evita que el ancho exceda el 100% */
-  position: sticky; /* Hace que se quede fija */
-  top: 0; /* Se queda en el tope de la pantalla */
-  z-index: 999; /* Sobre otros elementos */
-  border-radius: 5px;
-}
-
-.nav-list{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-
-
-.icon{
-  font-size: 18px;
-}
 
 .animated-line {
   position: relative;
@@ -148,7 +102,7 @@ h1 {
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 2px; /* Altura de la línea */
+  height: 2px;
   background-color: white;
   transition: width 0.4s ease, left 0.4s ease;
 }
@@ -156,71 +110,6 @@ h1 {
 .animated-line:hover::before {
   width: 100%;
   left: 0;
-}
-
-
-
-
-/* Estilos del Dropdown */
-.dd-container {
-  position: relative;
-  display: inline-block;
-}
-
-.dd-container ul{
-  position: absolute;
-  overflow: hidden;
-}
-
-.nav-option:hover {
-  color: #ff8533;
-}
-
-.dd-icon {
-  transition: transform 0.3s ease;
-}
-
-.nav-option:hover .dd-icon {
-  transform: rotate(180deg);
-}
-
-.dd-menu{
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #333333;
-  border-radius: 8px;
-  padding: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  list-style: none;
-  margin: 0 1rem;
-  font-size: 18px;
-}
-
-.dd-container:hover .dd-menu{
- display: block;
-}
-
-.dd-menu li {
-  padding: 3px 10px;
-  margin: 5px 0;
-  color: white;
-  border-radius: 8px;
-  transition: background 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.dd-menu li:hover {
-  background: #FF6B00;
-  color: white;
-}
-
-.dd-menu li a {
-  text-decoration: none;
-  color: inherit;
 }
 
 .navbar-footer {
@@ -232,7 +121,7 @@ h1 {
   padding: 0.4rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 100%;
-  position: relative; /* Necesario para aplicar el z-index */
+  position: relative;
   z-index: 10;
 }
 
@@ -242,25 +131,36 @@ h1 {
   color: white;
 }
 
-.footer-text:hover {
-  cursor: pointer;
-  text-decoration:underline;
+
+.logout{
+  color: #FF5722;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.form-group input {
-  width: 100%;
-  padding: 0.3rem;
-  border: 1px solid #1E1B4B;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+.logout:hover {
+  color: white;
+  transition: 0.5s;
 }
 
-.form-group input:focus {
-  outline: none;
-  border-color: #FF5722;
-  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+.logout span{
+  padding: 0 10px;
 }
 
+.button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
 
+.icon{
+  color: white;
+  margin: 0 0.3rem;
+}
 
+.home-btn:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3rem;
+}

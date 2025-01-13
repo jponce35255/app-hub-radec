@@ -1,73 +1,57 @@
-<div class="container background-container">
+<div class="background-container">
+  <!--* Loading spinner -->
+  <app-spinner [isLoading]="isLoading"></app-spinner>
+
   <!-- Patron de background  -->
-<div class="dot-pattern"></div>
+  <div class="dot-pattern"></div>
 
-<div class="content">
-  <a class="header" href="https://www.radec.com.mx/"></a>
+  <div class="content">
 
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-brand">
-        <h1>Applicaciones Radec</h1>
-        <div class="separator"></div>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <h1>Applicaciones Radec</h1>
 
-         <!-- Filtro de búsqueda -->
-      <!-- <div class="form-group">
-        <input
-        type="text"
-        [(ngModel)]="searchText"
-        (input)="onSearchChange()"
-        placeholder="Buscar"
-        class="search-input"
-      >
-      </div> -->
+          <div class="separator"></div>
+          <!-- <button class="home-btn"> <i class="bi bi-house-fill icon"></i> </button> -->
 
-        <!-- <ul class="nav-list">
-          <li *ngFor="let option of navList"> -->
+          <div class="w-60">
+            <input type="text" class="form-control"
+                   placeholder="Buscar"
+                   [(ngModel)]="searchText"
+                   (input)="onSearchChange()"
+            >
+          </div>
+        </div>
+        <div class="logout animated-line">
+            <i class="bi bi-box-arrow-right"></i>
+          <span data-bs-toggle="modal" data-bs-target="#logoutModal">Salir</span>
+        </div>
+      </div>
+    </nav>
 
-            <!-- Dropdown menu -->
-            <!-- <ng-container *ngIf="option.submenu; else singleOption">
-             <div class="dd-container">
-              <h2 class="nav-option animated-line">
-                {{option.name}}
-                <svg class="dd-icon" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </h2> -->
+    <!-- Contenido -->
+    <app-list [searchText]="searchText"></app-list>
 
-              <!-- Submenu -->
-              <!-- <ul class="dd-menu">
-                <li *ngFor="let submenu of option.submenu">
-                  <a class="dd-item" [href]="submenu.route">
-                    <i *ngIf="submenu.icon">
-                      <img [src]="submenu.icon" width="20" height="20">
-                    </i>
-                    {{submenu.name}}
-                  </a>
-                </li>
-              </ul>
-             </div>
-            </ng-container> -->
+  </div>
+  <nav class="navbar-footer">
+    <a class="footer-text"> © {{ currentYear }} Todos los derechos reservados </a>
+    <a class="footer-text"> RADEC S.A. de C.V. </a>
+  </nav>
+</div>
 
 
-            <!-- Single option -->
-            <!-- <ng-template #singleOption>
-              <h2 class="animated-line">
-                <a [href]="option.route" class="nav-option" style="text-decoration: none;">{{option.name}}</a>
-              </h2>
-            </ng-template>
-          </li>
-        </ul> -->
-
+<!--* Logout modal -->
+<div class="modal fade" tabindex="-1" id="logoutModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="text-center">¿Estas seguro de que deseas cerrar sesión?</p>
+        <div class="button-container">
+          <button class= "btn-t1 bg-white" type="button" data-bs-dismiss="modal"> Cancelar </button>
+          <button class= "btn-t1 bg-warn" type="button" (click)="onLogOut()" data-bs-dismiss="modal" > Continuar </button>
+        </div>
       </div>
     </div>
-  </nav>
-
-  <!-- Contenido -->
-  <app-list [searchText]="searchText"></app-list>
-</div>
-  <nav class="navbar-footer">
-    <a class="footer-text"> Catálogo Tracto 2023 </a>
-    <a class="footer-text"> Presentación Corporativa 2024 </a>
-  </nav>
+  </div>
 </div>

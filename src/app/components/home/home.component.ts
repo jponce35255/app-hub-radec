@@ -3,80 +3,51 @@ import { NavOption } from '../../interfaces/NavOption';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppListComponent } from '../app-list/app-list.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
+import { SpinnerComponent } from '../../shared/spinner/spinner.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    AppListComponent
-  ],
+    AppListComponent,
+    SpinnerComponent,
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   @Output() searchChanged = new EventEmitter<string>();  // Emisor para el texto de búsqueda
-  public searchText: string = '';
-  public navList: NavOption[] = [
-    {
-      route: '',
-      name: 'El Godinario',
-      icon: '',
-      submenu: [
-        {
-          route: 'https://sites.google.com/view/elgodinarioradec/inicio',
-          name: 'Ingresa al Sitio',
-          icon: '../assets/godinario-icon.png',
-        },
-        {
-          route: 'https://www.tiktok.com/@elgodinarioradec',
-          name: '@elgodinarioradec',
-          icon: '../assets/tiktok-icon.png',
-        },
-      ]
-    },
-    {
-      route: '',
-      name: 'Farosystem',
-      icon: '',
-      submenu: [
-        {
-          route: 'https://fortiaapp.radec.com.mx/RADEC/KioscoPrime/Seguridad/LogOn?ReturnUrl=%2FRADEC%2FKioscoPrime%2F',
-          name: 'Kiosko',
-          icon: '',
-        },
-        {
-          route: 'https://fortiaapp.radec.com.mx/RADEC/FortiaPrime/Seguridad/LogOn',
-          name: 'Aplicativo',
-          icon: '',
-        },
-      ]
-    },
-    {
-      route: '',
-      name: 'El Faro',
-      icon: '',
-      submenu: [
-        {
-          route: '',
-          name: 'Ilumina tu vida',
-          icon: '',
-        },
-        {
-          route: '',
-          name: 'El Faro Café',
-          icon: '',
-        },
-      ]
-    },
 
-  ]
+  // public searchText: string = '';
+  public currentYear: number;
+  public isLoading: boolean = false;
+  public searchText: string  = '';
 
-  constructor(){}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastService: ToastrService
+  ){
+    this.currentYear = new Date().getFullYear();
+  }
 
   onSearchChange() {
     this.searchChanged.emit(this.searchText);
+  }
+
+  onLogOut(): void {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+      this.toastService.success('Tu sesión ha finalizado.', '¡Éxito!')
+      this.authService.logout();
+      this.router.navigate(['/login']);
+    }, 100);
   }
 }

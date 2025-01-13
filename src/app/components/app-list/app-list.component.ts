@@ -11,59 +11,113 @@ export class AppListComponent implements OnChanges{
   @Input() searchText: string = '';
   applications: { name: string, url: string, imageUrl: string, description: string }[] = [
     {
-      name: 'App 1',
-      url: 'https://app1.com',
-      imageUrl: '../../assets/radec-logo.png',  // https://via.placeholder.com/150
-      description: 'Descripción breve de App 1'
+      name: 'SISCA',
+      url: 'http://192.168.103.247/sisca/?Sistema=SISCA',
+      imageUrl: '../../assets/sisca.webp',  // https://via.placeholder.com/150
+      description: 'Sistema para el control de aplicaciones'
     },
     {
-      name: 'App 2',
-      url: 'https://app2.com',
-      imageUrl: '../../assets/radec-logo.png',
-      description: 'Descripción breve de App 2'
+      name: 'PWEB',
+      url: 'http://192.168.103.247/prosesoweb/?Sistema=PWEB',
+      imageUrl: '../../assets/proseso.jpg',
+      description: 'Proseso WEB'
     },
     {
-      name: 'App 3',
-      url: 'https://app3.com',
-      imageUrl: '../../assets/radec-logo.png',
-      description: 'Descripción breve de App 3'
+      name: 'SISDOC Alpin',
+      url: 'http://192.168.103.247/SisdocAlpin/admin/?Sistema=SISDOC%20Alpin',
+      imageUrl: '../../assets/doc.avif',
+      description: 'Sistema de documentación de calidad'
     },
     {
-      name: 'App 1',
-      url: 'https://app1.com',
-      imageUrl: '../../assets/radec-logo.png',
-      description: 'Descripción breve de App 1'
+      name: 'SISCA',
+      url: 'http://192.168.103.247/sisca/?Sistema=SISCA',
+      imageUrl: '../../assets/sisca.webp',  // https://via.placeholder.com/150
+      description: 'Sistema para el control de aplicaciones'
     },
     {
-      name: 'App 2',
-      url: 'https://app2.com',
-      imageUrl: '../../assets/radec-logo.png',
-      description: 'Descripción breve de App 2'
+      name: 'PWEB',
+      url: 'http://192.168.103.247/prosesoweb/?Sistema=PWEB',
+      imageUrl: '../../assets/proseso.jpg',
+      description: 'Proseso WEB'
     },
     {
-      name: 'App 3',
-      url: 'https://app3.com',
-      imageUrl: '../../assets/radec-logo.png',
-      description: 'Descripción breve de App 3'
+      name: 'SISDOC Alpin',
+      url: 'http://192.168.103.247/SisdocAlpin/admin/?Sistema=SISDOC%20Alpin',
+      imageUrl: '../../assets/doc.avif',
+      description: 'Sistema de documentación de calidad'
     },
     {
-      name: 'App 1',
-      url: 'https://app1.com',
-      imageUrl: '../../assets/radec-logo.png',
-      description: 'Descripción breve de App 1'
+      name: 'SISCA',
+      url: 'http://192.168.103.247/sisca/?Sistema=SISCA',
+      imageUrl: '../../assets/sisca.webp',  // https://via.placeholder.com/150
+      description: 'Sistema para el control de aplicaciones'
     },
     {
-      name: 'App 2',
-      url: 'https://app2.com',
-      imageUrl: '../../assets/radec-logo.png',
-      description: 'Descripción breve de App 2'
+      name: 'PWEB',
+      url: 'http://192.168.103.247/prosesoweb/?Sistema=PWEB',
+      imageUrl: '../../assets/proseso.jpg',
+      description: 'Proseso WEB'
     },
     {
-      name: 'App 3',
-      url: 'https://app3.com',
-      imageUrl: '../../assets/radec-logo.png',
-      description: 'Descripción breve de App 3'
-    }
+      name: 'SISDOC Alpin',
+      url: 'http://192.168.103.247/SisdocAlpin/admin/?Sistema=SISDOC%20Alpin',
+      imageUrl: '../../assets/doc.avif',
+      description: 'Sistema de documentación de calidad'
+    },
+    {
+      name: 'SISCA',
+      url: 'http://192.168.103.247/sisca/?Sistema=SISCA',
+      imageUrl: '../../assets/sisca.webp',  // https://via.placeholder.com/150
+      description: 'Sistema para el control de aplicaciones'
+    },
+    {
+      name: 'PWEB',
+      url: 'http://192.168.103.247/prosesoweb/?Sistema=PWEB',
+      imageUrl: '../../assets/proseso.jpg',
+      description: 'Proseso WEB'
+    },
+    {
+      name: 'SISDOC Alpin',
+      url: 'http://192.168.103.247/SisdocAlpin/admin/?Sistema=SISDOC%20Alpin',
+      imageUrl: '../../assets/doc.avif',
+      description: 'Sistema de documentación de calidad'
+    },
+    {
+      name: 'SISCA',
+      url: 'http://192.168.103.247/sisca/?Sistema=SISCA',
+      imageUrl: '../../assets/sisca.webp',  // https://via.placeholder.com/150
+      description: 'Sistema para el control de aplicaciones'
+    },
+    {
+      name: 'PWEB',
+      url: 'http://192.168.103.247/prosesoweb/?Sistema=PWEB',
+      imageUrl: '../../assets/proseso.jpg',
+      description: 'Proseso WEB'
+    },
+    {
+      name: 'SISDOC Alpin',
+      url: 'http://192.168.103.247/SisdocAlpin/admin/?Sistema=SISDOC%20Alpin',
+      imageUrl: '../../assets/doc.avif',
+      description: 'Sistema de documentación de calidad'
+    },
+    {
+      name: 'SISCA',
+      url: 'http://192.168.103.247/sisca/?Sistema=SISCA',
+      imageUrl: '../../assets/sisca.webp',  // https://via.placeholder.com/150
+      description: 'Sistema para el control de aplicaciones'
+    },
+    {
+      name: 'PWEB',
+      url: 'http://192.168.103.247/prosesoweb/?Sistema=PWEB',
+      imageUrl: '../../assets/proseso.jpg',
+      description: 'Proseso WEB'
+    },
+    {
+      name: 'SISDOC Alpin',
+      url: 'http://192.168.103.247/SisdocAlpin/admin/?Sistema=SISDOC%20Alpin',
+      imageUrl: '../../assets/doc.avif',
+      description: 'Sistema de documentación de calidad'
+    },
   ];
   filteredAppList = this.applications;
 
@@ -83,4 +137,9 @@ export class AppListComponent implements OnChanges{
       );
     }
   }
+
+  openApp(url: string): void {
+    window.open(url, '_blank');
+  }
+
 }
