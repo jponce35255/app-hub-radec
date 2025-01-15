@@ -1,68 +1,119 @@
 # Hub
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Esta aplicación está desarrollada en Angular 19 diseñada para ser un punto centralizado de acceso a otras aplicaciones. Esta app actúa como un hub, proporcionando enlaces y redirecciones rápidas a diversas aplicaciones. 
 
-## Development server
+---
 
-To start a local development server, run:
+## Tabla de Contenidos
 
-```bash
-ng serve
-```
+- [Desarrolladores](#desarrolladores)
+- [Paqueterías utilizadas](#paqueterías-utilizadas)
+- [Requisitos](#requisitos)
+- [Instalación y Configuración](#instalación-y-configuración)
+  - [Instalación de Dependencias](#instalación-de-dependencias)
+  - [Configuración](#configuración)
+- [Ejecutar el Proyecto](#ejecutar-el-proyecto)
+- [Compilar el Proyecto](#compilar-el-proyecto)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Desarrolladores
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **[Jonathan Ponce]** - First commit (15/01/2025).
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Fuentes y Bibliotecas Externas
 
-```bash
-ng generate --help/m
-```
+A continuación se muestran las dependencias externas utilizadas en este proyecto:
 
-## Building
+### Fuentes
 
-To build the project run:
+1. **Roboto & Poppins** (fuente de Google Fonts):
+   Para agregar la fuente **Roboto**, incluye este enlace en el archivo `index.html` de tu proyecto:
 
-```bash
-ng build
-```
+   ```html
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Poppins:wght@500&display=swap" rel="stylesheet">
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2. **Material Icons** (Íconos de Google):
+   Para agregar los **Material Ícons**, incluye este enlace en el archivo `index.html` de tu proyecto:
 
-## Running unit tests
+   ```html
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Bootstrap
 
-```bash
-ng test
-```
+1. **Bootstrap CSS**:
+   Para usar el framework de Bootstrap en tu proyecto, agrega el siguiente enlace en el archivo `index.html`:
 
-## Running end-to-end tests
+   ```html
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-For end-to-end (e2e) testing, run:
+2. **Bootstrap JS**:
+    Para agregar los scripts de Bootstrap, incluye este script en el archivo `index.html` antes del cierre de la etiqueta `</body>`:
 
-```bash
-ng e2e
-```
+   ```html
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3. **Bootstrap Icons**:
+    Para usar los íconos de Bootstrap, agrega este enlace en el archivo `index.html`:
 
-## Additional Resources
+   ```html
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Recuerda que estos enlaces deben ser agregados dentro de la etiqueta `<head>` en el archivo `index.html` para que se apliquen correctamente en la aplicación.
 
+---
 
-## Dependencias
+## Requisitos
 
-Este proyecto incluye:
-Bootstrap 5.3.3
+- Node.js versión 22 o superior.
+- Angular CLI versión 19.
+- npm o yarn para la gestión de dependencias.
 
-```bash
-npm install bootstrap@5.3.3
+---
+
+## Instalación y Configuración
+
+### Instalación de Dependencias
+
+Para comenzar con el proyecto, primero debes clonar este repositorio y luego instalar las dependencias necesarias:
+
+1. Clona el repositorio:
+   ```bash
+   git clone <repositorio_url>
+   cd <nombre_del_proyecto>
+2. Instala las dependencias:
+   ```bash
+   npm install
+---
+
+## Configuración
+
+Si necesitas personalizar algunas configuraciones como las variables de entorno, edita los archivos correspondientes:
+
+- **environment.ts**: Configuración de entornos (desarrollo).
+- **environment.prod.ts**: Configuración de entornos (producción).
+
+---
+
+## Ejecutar el proyecto
+
+1. Para ejecutar la aplicación en modo desarrollo, usa el siguiente comando:
+    ```bash
+    ng serve -o
+  Esto abrirá automáticamente una pestaña del navegador en la ruta `http://localhost:4200`.
+
+2. Para abrir la aplicación en un puerto específico, ejecuta:
+    ```bash
+    ng serve --port 4201
+  Cuando ejecutas el comando, el servidor de Angular se levantará y podrás acceder a tu aplicación en `http://localhost:4201`.
+  
+---
+
+## Compilar el proyecto
+
+- Para compilar el proyecto en modo producción, ejecuta:
+  ```bash
+  npm run build -- --configuration production
+Los archivos optimizados se generarán en la carpeta `dist/`.

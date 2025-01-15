@@ -1,0 +1,37 @@
+# Sistema de control de versiones
+.git
+.gitignore
+
+# Configuración y entornos
+.firebase
+.editorconfig
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Dependencias y módulos
+/node_modules
+/bower_components
+
+# Archivos de prueba y desarrollo
+/e2e
+/coverage
+/dist
+/tmp
+
+# Documentación y archivos comprimidos
+*.zip
+*.rar
+*.tar
+*.gz
+*.md
+*.txt
+*.log
+
+# IDEs y editores
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
